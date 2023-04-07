@@ -1,6 +1,8 @@
 .login{
     position: absolute;
     top: 30% !important;
+    min-width: 300px;
+    max-width: 500px;
 }
 
 .login-form{
@@ -16,3 +18,4 @@
     color: white;
     background-color: #181F32;
 }
+
