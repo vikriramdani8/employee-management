@@ -1,0 +1,24 @@
+<div class="container-fluid" style="background-color: #3B4664; height: 100vh;">
+    <div class="row justify-content-md-center">
+        <div class="col-md-2 login">
+            <div class="login-form">
+                <h3>Login</h3>
+                <form [formGroup]="loginForm">
+                    <label for="password">Email</label><br>
+                    <input class="form-control" type="email" name="email" formControlName="email">
+                    <ng-container *ngIf="loginFormControl['email'].touched || loginFormControl['email'].dirty">
+                        <p class="text-danger m-0" *ngIf="loginFormControl['email'].errors">Please enter an valid email</p>
+                        <p class="text-danger m-0" *ngIf="!loginFormControl['email'].value">Please fill out this email</p>
+                    </ng-container>
+                    <label for="password" class="mt-3">Password</label><br>
+                    <input class="form-control" type="password" name="password" formControlName="password">
+                    <ng-container *ngIf="loginFormControl['password'].touched || loginFormControl['password'].dirty">
+                        <p class="text-danger m-0" *ngIf="!loginFormControl['password'].value">Please fill out this password</p>
+                    </ng-container>
+                    <br>
+                    <button (click)="onLogin()" class="btn btn-login">Login</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

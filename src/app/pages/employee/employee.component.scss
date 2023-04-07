@@ -1,0 +1,72 @@
+.header{
+    width: 100%;
+    padding: 15px;
+    background-color: #3B4664;
+}
+
+.pagination {
+    display: inline-block;
+}
+
+.pagination span {
+    color: black;
+    float: left;
+    padding: 7px 14px;
+    text-decoration: none;
+    cursor: pointer;
+}
+  
+.pagination span.active {
+    background-color: #3B4664;
+    color: white;
+    border-radius: 50%;
+}
+
+.add-employee{
+    height: 40px;
+    color: white;
+    border: 1px solid #3B4664;
+    background-color: transparent;
+    text-align: center;
+    border-radius: 20px 20px;
+    min-width: 140px;
+    color: #3B4664;
+}
+
+.add-employee:hover{
+    background-color: #3B4664;
+    color: #fff;
+}
+
+.table-custom{
+    background-color: white;
+    border: 1 solid grey;
+
+    th{
+        background-color: #EFF0F5;   
+        padding-top: 12px;
+        padding-bottom: 12px;
+        padding-left: 15px;
+        padding-right: 15px;
+        color: #3B4664;
+    }
+
+    td{
+        padding-left: 15px;
+        padding-right: 15px;
+        vertical-align: middle;
+    }
+
+    .eclipse-custom{
+        width: 90%;
+        background-color: #4CAF50;
+        padding: 5px;
+        border-radius: 20px 20px;
+        background-color: #EFEFEF;
+        min-width: 75px;
+
+        span{
+            cursor: pointer;
+        }
+    }
+}

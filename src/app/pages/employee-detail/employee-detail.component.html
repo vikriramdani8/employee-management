@@ -1,0 +1,59 @@
+<div class="container-fluid" style="height: 100vh; background-color: #F4F5F9;">
+    <div class="container pt-4">
+        <h3>Detail Employee</h3><br>
+        <div class="row">
+            <div class="col-md-6">
+                <b>Employee Id</b><br>
+                <p>{{ employee['id'] }}</p>
+            </div>
+            <div class="col-md-6">
+                <b>Username</b><br>
+                <p>{{ employee['username'] }}</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <b>First Name</b><br>
+                <p>{{ employee['firstName'] }}</p>
+            </div>
+            <div class="col-md-6">
+                <b>Last Name</b><br>
+                <p>{{ employee['lastName'] }}</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <b>Email</b><br>
+                <p>{{ employee['email'] }}</p>
+            </div>
+            <div class="col-md-6">
+                <b>Birth Date</b><br>
+                <p>{{ employee['birthDate'] }}</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <b>Basic Salary</b><br>
+                <p>{{ employee['basicSalary'] | currency: 'Rp. ' }}</p>
+            </div>
+            <div class="col-md-6">
+                <b>Status</b><br>
+                <p>{{ employee['status'] ? 'Active' : 'Inactive' }}</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <b>Group</b><br>
+                <p>{{ employee['group'] }}</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <b>Description</b><br>
+                <p>{{ employee['description'] }}</p>
+            </div>
+        </div>
+
+        <button class="btn btn-custom btn-purple mt-3" (click)="back()">OK</button>
+    </div>
+</div>

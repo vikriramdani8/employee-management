@@ -1,0 +1,93 @@
+<div class="container-fluid p-0" style="background-color: #FCFCFC; height: 100vh;">
+    <div class="header">
+        <button class="btn btn-light" (click)="logout()">Logout</button>
+    </div>
+    <div class="container">
+        <br>
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="input-group mb-2">
+                    <input type="text" placeholder="Search Employee" class="form-control" [formControl]="searchControl">
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="row">
+                    <div class="col-sm-4 mb-2">
+                        <select class="w-50" class="form-control" [formControl]="limitPerPage" name="limitPerPage" id="limitPerPage">
+                            <option value="10">10</option>
+                            <option value="25">25</option>
+                            <option value="50">50</option>
+                            <option value="100">100</option>
+                        </select>
+                    </div>
+                    <div class="col-sm-4 mb-2">
+                        <select class="form-control" (change)="filterByStatus($event)" name="status" id="status">
+                            <option value="nofilter">No Filter</option>
+                            <option value="active">Active</option>
+                            <option value="inactive">Inactive</option>
+                        </select>
+                    </div>
+                    <div class="col-sm-4 cursor-pointer text-center mb-2">
+                        <button class="add-employee" routerLink="add">
+                            Add Employee
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="table-responsive mt-3">
+            <table class="table table-borderless table-custom">
+                <thead>
+                    <tr>
+                        <th width="17%">
+                            <div class="d-flex p-0">
+                                <span>Username</span>
+                                <span (click)="sortByUsername()" class="cursor-pointer">
+                                    <img src="assets/images/ic_sort.png" width="14">
+                                </span>
+                            </div>
+                        </th>
+                        <th width="23%">Name</th>
+                        <th width="20%">Group</th>
+                        <th width="20%">Email</th>
+                        <th width="10%">Status</th>
+                        <th width="10%" class="text-center">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let data of listEmployee; let i = index;">
+                        <td>{{ data['username'] }}</td>
+                        <td>{{ data['firstName']+' '+data['lastName'] }}</td>
+                        <td>{{ data['group'] }}</td>
+                        <td>{{ data['email'] }}</td>
+                        <td>{{ data['status'] ? 'Active' : 'Inactive' }}</td>
+                        <td>
+                            <div class="d-flex justify-content-around eclipse-custom">
+                                <span routerLink="{{ data['id'] }}">
+                                    <img src="assets/images/ic_search.png" width="18">
+                                </span>
+                                <span>
+                                    <img src="assets/images/ic_pen.png" width="18">
+                                </span>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="text-center">
+            <div class="pagination" *ngIf="numberOfPages > 1">
+                <span *ngIf="currentPage != 1" (click)="changePage(currentPage-1)">&laquo;</span>
+                <ng-container *ngFor="let item of [].constructor(numberOfPages); let i = index">
+                    <span [ngClass]="{'active': i+1 == currentPage}" (click)="changePage(i+1)">
+                        {{ i+1 }}
+                    </span>
+                </ng-container>
+                <span *ngIf="currentPage != numberOfPages" (click)="changePage(currentPage+1)">&raquo;</span>
+            </div>
+        </div>
+
+    </div>
+</div>
